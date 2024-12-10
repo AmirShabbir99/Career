@@ -34,7 +34,7 @@ const PostJob = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/job/post",
+        "https://careercompass-seven.vercel.appapi/job/post",
         fixedSalary.length >= 4
           ? {
               title,

@@ -17,17 +17,23 @@ const MyApplications = () => {
     try {
       if (user && user.role === "Employer") {
         axios
-          .get("http://localhost:8000/api/application/employer/getall", {
-            withCredentials: true,
-          })
+          .get(
+            "https://careercompass-seven.vercel.appapi/application/employer/getall",
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             setApplications(res.data.applications);
           });
       } else {
         axios
-          .get("http://localhost:8000/api/application/jobseeker/getall", {
-            withCredentials: true,
-          })
+          .get(
+            "https://careercompass-seven.vercel.appapi/application/jobseeker/getall",
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             setApplications(res.data.applications);
           });
@@ -44,9 +50,12 @@ const MyApplications = () => {
   const deleteApplication = (id) => {
     try {
       axios
-        .delete(`http://localhost:8000/api/application/delete/${id}`, {
-          withCredentials: true,
-        })
+        .delete(
+          `https://careercompass-seven.vercel.appapi/application/delete/${id}`,
+          {
+            withCredentials: true,
+          }
+        )
         .then((res) => {
           toast.success(res.data.message);
           setApplications((prevApplication) =>

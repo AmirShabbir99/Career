@@ -16,7 +16,7 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:8000/api/job/myJob",
+          "https://careercompass-seven.vercel.appapi/job/myJob",
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);
@@ -47,9 +47,13 @@ const MyJobs = () => {
     const updatedJob = myJobs.find((job) => job._id === jobId);
     console.log("updatedJob", updatedJob);
     await axios
-      .put(`http://localhost:8000/api/job/update/${jobId}`, updatedJob, {
-        withCredentials: true,
-      })
+      .put(
+        `https://careercompass-seven.vercel.appapi/job/update/${jobId}`,
+        updatedJob,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
         setEditingMode(null);
@@ -62,7 +66,7 @@ const MyJobs = () => {
   // Function for deleting job
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(`http://localhost:8000/api/job/delete/${jobId}`, {
+      .delete(`https://careercompass-seven.vercel.appapi/job/delete/${jobId}`, {
         withCredentials: true,
       })
       .then((res) => {
