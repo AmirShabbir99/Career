@@ -16,7 +16,7 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "https://careercompass-seven.vercel.appapi/job/myJob",
+          "https://careercompass-seven.vercel.app/job/myJob",
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);
@@ -48,7 +48,7 @@ const MyJobs = () => {
     console.log("updatedJob", updatedJob);
     await axios
       .put(
-        `https://careercompass-seven.vercel.appapi/job/update/${jobId}`,
+        `https://careercompass-seven.vercel.app/job/update/${jobId}`,
         updatedJob,
         {
           withCredentials: true,
@@ -66,7 +66,7 @@ const MyJobs = () => {
   // Function for deleting job
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(`https://careercompass-seven.vercel.appapi/job/delete/${jobId}`, {
+      .delete(`https://careercompass-seven.vercel.app/job/delete/${jobId}`, {
         withCredentials: true,
       })
       .then((res) => {

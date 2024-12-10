@@ -24,7 +24,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://careercompass-seven.vercel.appapi/user/getuser",
+          "https://careercompass-seven.vercel.app/user/getuser",
           {
             withCredentials: true,
           }

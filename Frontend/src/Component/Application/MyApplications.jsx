@@ -18,7 +18,7 @@ const MyApplications = () => {
       if (user && user.role === "Employer") {
         axios
           .get(
-            "https://careercompass-seven.vercel.appapi/application/employer/getall",
+            "https://careercompass-seven.vercel.app/application/employer/getall",
             {
               withCredentials: true,
             }
@@ -29,7 +29,7 @@ const MyApplications = () => {
       } else {
         axios
           .get(
-            "https://careercompass-seven.vercel.appapi/application/jobseeker/getall",
+            "https://careercompass-seven.vercel.app/application/jobseeker/getall",
             {
               withCredentials: true,
             }
@@ -51,7 +51,7 @@ const MyApplications = () => {
     try {
       axios
         .delete(
-          `https://careercompass-seven.vercel.appapi/application/delete/${id}`,
+          `https://careercompass-seven.vercel.app/application/delete/${id}`,
           {
             withCredentials: true,
           }
