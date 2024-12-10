@@ -27,6 +27,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  res.send("Login route is working!");
+});
+
 app.use("/api/user", userRouter);
 app.use("/api/job", jobRouter);
 app.use("/api/application", applicationRouter);
