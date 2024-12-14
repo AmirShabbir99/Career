@@ -70,7 +70,7 @@ const Register = () => {
             <label className="w-32">Name</label>
             <input
               type="text"
-              placeholder="Zeeshan"
+              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
@@ -126,7 +126,7 @@ const Register = () => {
       </div>
       <div className="banner hidden sm:block w-1/2">
         <img
-          src="/job2.png"
+          src="/register.png"
           alt="login"
           className="w-full rounded-lg shadow-lg"
         />
