@@ -3,7 +3,7 @@ import { User } from "../models/userSchema.js";
 import jwt from "jsonwebtoken";
 
 export const isAuthorized =
-  (catchAsyncError,
+  catchAsyncError(
   async (req, res, next) => {
     const { token } = req.cookies;
     if (!token) {
