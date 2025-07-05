@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.get(
-        "https://careercompass-seven.vercel.app/api/user/logout",
+        "https://careercampass.vercel.app/api/user/logout",
         {
           withCredentials: true,
         }

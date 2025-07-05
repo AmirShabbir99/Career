@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://careercompass-seven.vercel.app/api/user/login",
+        "https://careercampass.vercel.app/api/user/login",
         { email, password, role },
         {
           headers: {
