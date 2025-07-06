@@ -6,11 +6,13 @@ import { FaRegUser } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
@@ -73,17 +75,24 @@ const Login = () => {
             />
             <MdOutlineMailOutline className="text-gray-600 ml-2" />
           </div>
-          <div className="inputTag mb-4 flex items-center border-b-2 border-gray-300">
+          <div className="inputTag mb-4 flex items-center border-b-2 border-gray-300 relative">
             <label className="w-32">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Your Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 pr-10"
             />
+            <span
+              className="absolute right-8 text-gray-600 cursor-pointer"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash className="text-gray-600 " /> : <FaEye />}
+            </span>
             <RiLock2Fill className="text-gray-600 ml-2" />
           </div>
+
           <button
             type="submit"
             className="w-full p-3 bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] text-white font-semibold rounded-md hover:from-[#6fa2c5] hover:to-[#8189c6]"
