@@ -70,12 +70,17 @@ const Navbar = () => {
             </>
           )}
           <li>
-            <button
-              onClick={handleLogout}
-              className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
-            >
-              LOGOUT
-            </button>
+          {isAuthorized && (
+  <li>
+    <button
+      onClick={handleLogout}
+      className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+    >
+      LOGOUT
+    </button>
+  </li>
+)}
+
           </li>
         </ul>
 
