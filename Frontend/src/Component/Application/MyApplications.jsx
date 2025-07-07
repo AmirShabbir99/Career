@@ -77,7 +77,7 @@ const MyApplications = () => {
   };
 
   return (
-    <section className="my_applications page bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] p-6">
+    <section className="my_applications page h-screen bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] p-6">
       <div className="container mx-auto">
         <h1 className="mt-12 text-4xl font-bold text-white mb-4">
           {user && user.role === "Job Seeker"
