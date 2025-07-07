@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../../main";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -14,18 +14,22 @@ const Navbar = () => {
     try {
       const response = await axios.get(
         "https://careercampass.vercel.app/api/user/logout",
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
       toast.success(response.data.message);
       setIsAuthorized(false);
       navigateTo("/login");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Logout failed");
       setIsAuthorized(true);
     }
   };
+
+  // shared NavLink class function
+  const linkClasses = ({ isActive }) =>
+    `text-white hover:text-purple-200 px-2 py-1 transition duration-300 ${
+      isActive ? 'border-b-2 border-white ' : ''
+    }`;
 
   return (
     <nav
@@ -45,42 +49,50 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        {isAuthorized&&
-        <ul className="hidden sm:flex space-x-6 items-center">
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/"}>HOME</Link>
-          </li>
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/job/getall"}>ALL JOBS</Link>
-          </li>
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/applications/me"}>
-              {user && user.role === "Employer"
-                ? "APPLICANT'S APPLICATIONS"
-                : "MY APPLICATIONS"}
-            </Link>
-          </li>
-          {user && user.role === "Employer" && (
-            <>
-              <li className="text-white hover:text-purple-200">
-                <Link to={"/job/post"}>POST NEW JOB</Link>
-              </li>
-              <li className="text-white hover:text-purple-200">
-                <Link to={"/job/me"}>VIEW YOUR JOBS</Link>
-              </li>
-            </>
-          )}
-          <li>
-            
-            <button
-              onClick={handleLogout}
-              className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
-            >
-              LOGOUT
-            </button>
-          </li>
-        </ul>
-}
+        {isAuthorized && (
+          <ul className="hidden sm:flex space-x-6 items-center">
+            <li>
+              <NavLink to="/" className={linkClasses}>
+                HOME
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/job/getall" className={linkClasses}>
+                ALL JOBS
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/applications/me" className={linkClasses}>
+                {user?.role === "Employer"
+                  ? "APPLICANT'S APPLICATIONS"
+                  : "MY APPLICATIONS"}
+              </NavLink>
+            </li>
+            {user?.role === "Employer" && (
+              <>
+                <li>
+                  <NavLink to="/job/post" className={linkClasses}>
+                    POST NEW JOB
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/job/me" className={linkClasses}>
+                    VIEW YOUR JOBS
+                  </NavLink>
+                </li>
+              </>
+            )}
+            <li>
+              <button
+                onClick={handleLogout}
+                className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+              >
+                LOGOUT
+              </button>
+            </li>
+          </ul>
+        )}
+
         {/* Hamburger Menu for Mobile */}
         <div
           className="sm:hidden text-white text-3xl cursor-pointer"
@@ -90,54 +102,76 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sidebar for Mobile */}
+      {/* Overlay for Mobile */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-all duration-300 ease-in-out ${
-          showSidebar ? "block" : "hidden"
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300 ease-in-out ${
+          showSidebar ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setShowSidebar(false)}
       />
+
+      {/* Sidebar for Mobile */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-gray-800 z-50 transition-transform transform ${
           showSidebar ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <ul className="space-y-4 p-6">
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/"} onClick={() => setShowSidebar(false)}>
+          <li>
+            <NavLink
+              to="/"
+              className={linkClasses}
+              onClick={() => setShowSidebar(false)}
+            >
               HOME
-            </Link>
+            </NavLink>
           </li>
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/job/getall"} onClick={() => setShowSidebar(false)}>
+          <li>
+            <NavLink
+              to="/job/getall"
+              className={linkClasses}
+              onClick={() => setShowSidebar(false)}
+            >
               ALL JOBS
-            </Link>
+            </NavLink>
           </li>
-          <li className="text-white hover:text-purple-200">
-            <Link to={"/applications/me"} onClick={() => setShowSidebar(false)}>
-              {user && user.role === "Employer"
+          <li>
+            <NavLink
+              to="/applications/me"
+              className={linkClasses}
+              onClick={() => setShowSidebar(false)}
+            >
+              {user?.role === "Employer"
                 ? "APPLICANT'S APPLICATIONS"
                 : "MY APPLICATIONS"}
-            </Link>
+            </NavLink>
           </li>
-          {user && user.role === "Employer" && (
+          {user?.role === "Employer" && (
             <>
-              <li className="text-white hover:text-purple-200">
-                <Link to={"/job/post"} onClick={() => setShowSidebar(false)}>
+              <li>
+                <NavLink
+                  to="/job/post"
+                  className={linkClasses}
+                  onClick={() => setShowSidebar(false)}
+                >
                   POST NEW JOB
-                </Link>
+                </NavLink>
               </li>
-              <li className="text-white hover:text-purple-200">
-                <Link to={"/job/me"} onClick={() => setShowSidebar(false)}>
+              <li>
+                <NavLink
+                  to="/job/me"
+                  className={linkClasses}
+                  onClick={() => setShowSidebar(false)}
+                >
                   VIEW YOUR JOBS
-                </Link>
+                </NavLink>
               </li>
             </>
           )}
           <li>
             <button
               onClick={handleLogout}
-              className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+              className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300 w-full text-left"
             >
               LOGOUT
             </button>
