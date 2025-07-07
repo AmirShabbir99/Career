@@ -27,22 +27,22 @@ export const login=catchAsyncError(async(req,res,next)=>{
     const {email,password,role}=req.body;
 
     if(!email||!password || !role)
-        return res.status(400).json({message:"Login Error"})
+        return res.status(400).json({message:"Login Error !"})
     
     const user=await User.findOne({email}).select("+password")
     if(!user)
     {
-        return next(res.status(400).json({message:"user not find Error"}))
+        return next(res.status(400).json({message:"User not find Error"}))
     }
     const isMatch=await user.comparePassword(password)
     if(!isMatch)
         {
-            return next(res.status(400).json({message:"user not find Error"}))
+            return next(res.status(400).json({message:"User not find Error"}))
         }
 
         if(user.role!==role)
         {
-            return next(res.status(400).json({message:"user Role not find Error"}))
+            return next(res.status(400).json({message:"User Role not find Error !"}))
         }
 
     sendToken(user,201,res,"Login Successfull")
