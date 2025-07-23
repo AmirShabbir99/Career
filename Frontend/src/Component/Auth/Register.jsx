@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://careercampass.vercel.app/api/user/register",
+        `${import.meta.env.VITE_FRONTEND_URL}/api/user/register`,
         { name, phone, email, role, password },
         {
           headers: {

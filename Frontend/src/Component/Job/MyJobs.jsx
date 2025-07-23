@@ -16,7 +16,7 @@ const MyJobs = () => {
     const fetchJobs = async () => {
       try {
         const { data } = await axios.get(
-          "https://careercampass.vercel.app/api/job/myJob",
+          `${import.meta.env.VITE_FRONTEND_URL}/api/job/myJob`,
           { withCredentials: true }
         );
         setMyJobs(data.myJobs);

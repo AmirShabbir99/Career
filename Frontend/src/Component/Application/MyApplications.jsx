@@ -18,7 +18,7 @@ const MyApplications = () => {
       if (user && user.role === "Employer") {
         axios
           .get(
-            "https://careercampass.vercel.app/api/application/employer/getall",
+            `${import.meta.env.VITE_FRONTEND_URL}/api/application/employer/getall`,
             {
               withCredentials: true,
             }
@@ -29,7 +29,7 @@ const MyApplications = () => {
       } else {
         axios
           .get(
-            "https://careercampass.vercel.app/api/application/jobseeker/getall",
+            `${import.meta.env.VITE_FRONTEND_URL}/api/application/jobseeker/getall`,
             {
               withCredentials: true,
             }
