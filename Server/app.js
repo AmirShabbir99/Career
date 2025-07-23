@@ -10,13 +10,7 @@ import dbConnection from "./database/dbconnection.js";
 
 const app = express();
 dotenv.config();
-app.use(
-  cors({
-    origin: [process.env.FRONTEND_URL],
-    methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 console.log("FRONTEND_URL : ",process.env.FRONTEND_URL);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
