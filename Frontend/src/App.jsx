@@ -24,7 +24,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_FRONTEND_URL}/api/user/getuser`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/getuser`,
           {
             withCredentials: true,
           }

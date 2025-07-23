@@ -33,7 +33,7 @@ const Application = () => {
 
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_FRONTEND_URL}/api/application/post`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/application/post`,
         formData,
         {
           withCredentials: true,

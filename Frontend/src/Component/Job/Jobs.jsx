@@ -11,7 +11,7 @@ const Jobs = () => {
   useEffect(() => {
     try {
       axios
-        .get(`${import.meta.env.VITE_FRONTEND_URL}/api/job/getall`, {
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/job/getall`, {
           withCredentials: true,
         })
         .then((res) => {

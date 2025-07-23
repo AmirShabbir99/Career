@@ -20,7 +20,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${import.meta.env.VITE_FRONTEND_URL}/api/user/login`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/login`,
         { email, password, role },
         {
           headers: {

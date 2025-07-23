@@ -34,7 +34,7 @@ const PostJob = () => {
 
     try {
       const res = await axios.post(
-        `${import.meta.env.VITE_FRONTEND_URL}/api/job/post`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/job/post`,
         fixedSalary.length >= 4
           ? {
               title,
