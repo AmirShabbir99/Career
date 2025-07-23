@@ -12,13 +12,11 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: false,
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
+    credentials: true,
   })
 );
-
-console.log("FRONTEND_URL : ",process.env.FRONTEND_URL);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
