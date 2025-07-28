@@ -43,12 +43,12 @@ const MyJobs = () => {
 
   // Function for updating the job
   const handleUpdateJob = async (jobId) => {
-    console.log("updatedJob");
+ 
     const updatedJob = myJobs.find((job) => job._id === jobId);
-    console.log("updatedJob", updatedJob);
+   
     await axios
       .put(
-        `https://careercampass.vercel.app/api/job/update/${jobId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/job/update/${jobId}`,
         updatedJob,
         {
           withCredentials: true,
@@ -67,7 +67,7 @@ const MyJobs = () => {
   const handleDeleteJob = async (jobId) => {
     await axios
       .delete(
-        `https://careercampass.vercel.app/api/job/delete/${jobId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/job/delete/${jobId}`,
         {
           withCredentials: true,
         }

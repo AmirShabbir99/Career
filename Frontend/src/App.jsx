@@ -19,7 +19,7 @@ import NotFound from "./Component/NotFound/NotFound";
 import MyJobs from "./Component/Job/MyJobs";
 
 const App = () => {
-  const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
+  const { isAuthorized, setIsAuthorized, setUser ,user} = useContext(Context);
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -30,7 +30,9 @@ const App = () => {
           }
         );
         setUser(response.data.user);
+        if(user){
         setIsAuthorized(true);
+        }
       } catch (error) {
         console.log(error);
         setIsAuthorized(false);

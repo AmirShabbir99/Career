@@ -62,13 +62,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/applications/me" className={linkClasses}>
-                {user?.role === "Employer"
-                  ? "APPLICANT'S APPLICATIONS"
-                  : "MY APPLICATIONS"}
-              </NavLink>
+                <NavLink to="/applications/me" className={linkClasses}>
+                  {user?.role == "Employer"
+                    ? "APPLICANT'S APPLICATIONS"
+                    : "MY APPLICATIONS"}
+                </NavLink>
             </li>
-            {user?.role === "Employer" && (
+            {user?.role == "Employer" && (
               <>
                 <li>
                   <NavLink to="/job/post" className={linkClasses}>

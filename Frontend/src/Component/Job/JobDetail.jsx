@@ -13,7 +13,7 @@ const JobDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://careercampass.vercel.app/api/job/${id}`, {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/job/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

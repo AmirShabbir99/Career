@@ -51,7 +51,7 @@ const MyApplications = () => {
     try {
       axios
         .delete(
-          `https://careercampass.vercel.app/api/application/delete/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/application/delete/${id}`,
           {
             withCredentials: true,
           }
