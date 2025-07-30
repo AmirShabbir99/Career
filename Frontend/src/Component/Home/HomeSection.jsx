@@ -29,7 +29,7 @@ const HomeSection = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-300 via-blue-400 to-purple-400 min-h-screen text-white">
+    <div className="bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen text-white">
       <div className="heroSection py-24 md:py-32">
         <div className="container mx-auto px-6 text-center">
           <div

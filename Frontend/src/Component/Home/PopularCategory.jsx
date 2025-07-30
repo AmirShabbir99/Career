@@ -62,7 +62,7 @@ const PopularCategory = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-300 via-blue-400 to-purple-400 py-16 text-white">
+    <div className="bg-gradient-to-r from-blue-400  to-blue-300 py-16 text-white">
       <div className="container mx-auto px-4 text-center">
         <h3 className="text-3xl font-bold mb-8">POPULAR CATEGORIES</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

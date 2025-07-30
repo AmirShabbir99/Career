@@ -56,7 +56,7 @@ const Application = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-[#8BC6EC] to-[#9599E2]  application py-8 bg-gray-100">
+    <section className="bg-gradient-to-r from-blue-400  to-blue-300  application py-8 bg-gray-100">
       <div className="container mt-10 mx-auto p-6 bg-white rounded-lg shadow-lg max-w-2xl">
         <h3 className="text-3xl font-semibold text-center text-gray-700 mb-6">
           Application Form

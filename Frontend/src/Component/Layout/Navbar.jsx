@@ -28,18 +28,12 @@ const Navbar = () => {
   // shared NavLink class function
   const linkClasses = ({ isActive }) =>
     `text-white hover:text-purple-200 px-2 py-1 transition duration-300 ${
-      isActive ? 'border-b-2 border-white ' : ''
+      isActive ? "border-b-2 border-white " : ""
     }`;
 
   return (
-    <nav
-      className={`${
-        isAuthorized
-          ? "bg-gradient-to-r from-blue-400 to-purple-400"
-          : "bg-gray-800"
-      } shadow-md fixed w-full z-50`}
-    >
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <nav className="bg-black/40 backdrop-blur-md shadow-md fixed w-full z-50">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div
           onClick={() => navigateTo("/")}
@@ -62,11 +56,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-                <NavLink to="/applications/me" className={linkClasses}>
-                  {user?.role == "Employer"
-                    ? "APPLICANT'S APPLICATIONS"
-                    : "MY APPLICATIONS"}
-                </NavLink>
+              <NavLink to="/applications/me" className={linkClasses}>
+                {user?.role == "Employer"
+                  ? "APPLICANT'S APPLICATIONS"
+                  : "MY APPLICATIONS"}
+              </NavLink>
             </li>
             {user?.role == "Employer" && (
               <>
@@ -85,9 +79,9 @@ const Navbar = () => {
             <li>
               <button
                 onClick={handleLogout}
-                className="text-white bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+                className="text-white bg-red-500 px-2 font-[10px] py-1 rounded-full hover:bg-red-600 transition duration-300"
               >
-                LOGOUT
+                Sign out
               </button>
             </li>
           </ul>

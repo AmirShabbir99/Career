@@ -45,7 +45,7 @@ const Login = () => {
   }
 
   return (
-    <section className="authPage bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] min-h-screen flex items-center justify-center">
+    <section className="authPage bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen flex items-center justify-center">
       <div className="container max-w-lg p-6 bg-white rounded-lg shadow-lg">
         <div className="header mb-4 text-center">
           <h3 className="text-3xl font-semibold">Login to your account</h3>
@@ -88,14 +88,18 @@ const Login = () => {
               className="absolute right-8 text-gray-600 cursor-pointer"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <FaEyeSlash className="text-gray-600 " /> : <FaEye />}
+              {showPassword ? (
+                <FaEyeSlash className="text-gray-600 " />
+              ) : (
+                <FaEye />
+              )}
             </span>
             <RiLock2Fill className="text-gray-600 ml-2" />
           </div>
 
           <button
             type="submit"
-            className="w-full p-3 bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] text-white font-semibold rounded-md hover:from-[#6fa2c5] hover:to-[#8189c6]"
+            className="w-full p-3 bg-gradient-to-r from-blue-400  to-blue-300 text-white font-semibold rounded-md hover:from-[#6fa2c5] hover:to-[#8189c6]"
           >
             Login
           </button>

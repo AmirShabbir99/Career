@@ -30,7 +30,7 @@ const JobDetail = () => {
   }
 
   return (
-    <section className="jobDetail bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] min-h-screen flex items-center justify-center py-8">
+    <section className="jobDetail bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen flex items-center justify-center py-8">
       <div className="container max-w-4xl bg-white p-6 rounded-lg shadow-lg">
         <h3 className="mt-10 text-2xl font-semibold text-center mb-6">
           Job Details
@@ -76,7 +76,7 @@ const JobDetail = () => {
             <div className="mt-6">
               <Link
                 to={`/application/${job._id}`}
-                className="inline-block px-6 py-2 text-white font-semibold bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] rounded-md shadow-lg hover:bg-gradient-to-l hover:from-[#6fa2c5] hover:to-[#8189c6]"
+                className="inline-block px-6 py-2 text-white font-semibold bg-gradient-to-r from-blue-400  to-blue-300 rounded-md shadow-lg hover:bg-gradient-to-l hover:from-[#6fa2c5] hover:to-[#8189c6]"
               >
                 Apply Now
               </Link>

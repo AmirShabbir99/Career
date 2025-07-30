@@ -43,9 +43,8 @@ const MyJobs = () => {
 
   // Function for updating the job
   const handleUpdateJob = async (jobId) => {
- 
     const updatedJob = myJobs.find((job) => job._id === jobId);
-   
+
     await axios
       .put(
         `${import.meta.env.VITE_BACKEND_URL}/api/job/update/${jobId}`,
@@ -66,12 +65,9 @@ const MyJobs = () => {
   // Function for deleting job
   const handleDeleteJob = async (jobId) => {
     await axios
-      .delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/job/delete/${jobId}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/job/delete/${jobId}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         toast.success(res.data.message);
         setMyJobs((prevJobs) => prevJobs.filter((job) => job._id !== jobId));
@@ -90,9 +86,9 @@ const MyJobs = () => {
   };
 
   return (
-    <div className="  myJobs page bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] min-h-screen py-10">
+    <div className="  myJobs page bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen pt-24">
       <div className="container mx-auto px-4">
-        <h1 className="mt-10 text-3xl font-semibold text-center text-white mb-8">
+        <h1 className=" text-3xl font-semibold text-center text-white mb-8">
           Your Posted Jobs
         </h1>
         {myJobs.length > 0 ? (

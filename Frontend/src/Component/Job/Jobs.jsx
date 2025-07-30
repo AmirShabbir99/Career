@@ -27,8 +27,8 @@ const Jobs = () => {
   }
 
   return (
-    <section className="jobs bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] min-h-screen py-8">
-      <div className="container max-w-7xl mx-auto px-6">
+    <section className="jobs  bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen pt-24">
+      <div className="container  max-w-7xl mx-auto px-6">
         <h1 className="text-3xl font-semibold text-center text-white mb-8">
           ALL AVAILABLE JOBS
         </h1>
@@ -51,7 +51,7 @@ const Jobs = () => {
                 </p>
                 <Link
                   to={`/job/${job._id}`}
-                  className="text-white bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] px-4 py-2 rounded-md hover:bg-gradient-to-l hover:from-[#6fa2c5] hover:to-[#8189c6] transition-all"
+                  className="text-white bg-gradient-to-r from-blue-400  to-blue-300 px-4 py-2 rounded-md hover:bg-gradient-to-l hover:from-[#6fa2c5] hover:to-[#8189c6] transition-all"
                 >
                   Job Details
                 </Link>

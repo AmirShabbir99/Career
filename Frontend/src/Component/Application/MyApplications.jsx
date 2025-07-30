@@ -18,7 +18,9 @@ const MyApplications = () => {
       if (user && user.role === "Employer") {
         axios
           .get(
-            `${import.meta.env.VITE_BACKEND_URL}/api/application/employer/getall`,
+            `${
+              import.meta.env.VITE_BACKEND_URL
+            }/api/application/employer/getall`,
             {
               withCredentials: true,
             }
@@ -29,7 +31,9 @@ const MyApplications = () => {
       } else {
         axios
           .get(
-            `${import.meta.env.VITE_BACKEND_URL}/api/application/jobseeker/getall`,
+            `${
+              import.meta.env.VITE_BACKEND_URL
+            }/api/application/jobseeker/getall`,
             {
               withCredentials: true,
             }
@@ -77,15 +81,17 @@ const MyApplications = () => {
   };
 
   return (
-    <section className="my_applications page h-screen bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] p-6">
-      <div className="container mx-auto">
-        <h1 className="mt-12 text-4xl font-bold text-white mb-4">
+    <section className="my_applications page h-screen bg-gradient-to-r from-blue-400  to-blue-300 pt-12 ">
+      <div className="container mx-auto px-24">
+        <h1 className="mt-10 text-3xl font-semibold text-white text-center mb-8">
           {user && user.role === "Job Seeker"
             ? "My Applications"
             : "Applications From Job Seekers"}
         </h1>
         {applications.length <= 0 ? (
-          <h4 className="text-xl text-gray-300">No Applications Found</h4>
+          <h4 className="text-xl text-gray-300 text-center">
+            No Applications Found
+          </h4>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {applications.map((element) =>

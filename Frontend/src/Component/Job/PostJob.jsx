@@ -73,8 +73,8 @@ const PostJob = () => {
   }
 
   return (
-    <div className="job_post page bg-gradient-to-r from-[#8BC6EC] to-[#9599E2] min-h-screen py-10">
-      <div className="container mx-auto px-4">
+    <div className="job_post page bg-gradient-to-r from-blue-400  to-blue-300 min-h-screen pt-12">
+      <div className="container mx-auto px-24">
         <h3 className="mt-10 text-3xl font-semibold text-white text-center mb-8">
           Post a New Job
         </h3>

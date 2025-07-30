@@ -12,7 +12,7 @@ const Footer = () => {
       <footer
         className={`${
           isAuthorized ? "footerShow" : "footerHide"
-        } bg-gradient-to-r from-blue-300 via-blue-400 to-purple-400 text-white py-6`}
+        } bg-gradient-to-r from-blue-400  to-blue-300 text-white py-6`}
       >
         <div className="container mx-auto text-center">
           <div className="mb-4">
